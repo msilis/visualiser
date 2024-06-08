@@ -1,0 +1,103 @@
+body {
+    position: relative;
+    height: 100vh;
+    background-color: black;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+#soundbar1 {
+    transition-duration: 10ms;
+    background-color: #9e0142;
+}
+
+#soundbar2 {
+    transition-duration: 10ms;
+    background-color: #d53e4f;
+}
+
+#soundbar3 {
+    transition-duration: 10ms;
+    background-color: #f46d43;
+}
+
+#soundbar4 {
+    transition-duration: 10ms;
+    background-color: #fdae61;
+}
+
+#soundbar5 {
+    transition-duration: 10ms;
+    background-color: #fee08b;
+}
+
+#soundbar6 {
+    transition-duration: 10ms;
+    background-color: #ffffbf;
+}
+
+#soundbar7 {
+    transition-duration: 10ms;
+    background-color: #e6f598;
+}
+
+#soundbar8 {
+    transition-duration: 10ms;
+    background-color: #abdda4;
+}
+
+#soundbar9 {
+    transition-duration: 10ms;
+    background-color: #66c2a5;
+}
+
+#soundbar10 {
+    transition-duration: 10ms;
+    background-color: #3288bd;
+}
+
+#soundbar11 {
+    transition-duration: 10ms;
+    background-color: #5e4fa2;
+}
+
+#headingTag {
+    font-family: "Helvetica";
+}
+
+.rectangle {
+    margin-top: 16px;
+    height: 15px;
+    width: 0;
+}
+
+.circle {
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+}
+
+.buttonWrapper {
+    display: flex;
+    gap: 1rem;
+}
+
+.choiceButton {
+    border: none;
+    color: gray;
+    border-radius: 5px;
+    background-color: black;
+    width: 87px;
+    margin: 40px 0 30px 40px;
+    font-weight: bold;
+}
+
+.choiceButton:hover {
+    cursor: pointer;
+    background-color: #292b2e;
+    transition: background-color  0.3s easey;
+}
