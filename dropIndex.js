@@ -36,6 +36,7 @@ window.onload = function () {
     const startVisualiser = () => {
         source = context.createMediaElementSource(audio);
         analyser = context.createAnalyser();
+        console.log(analyser)
         source.connect(context.destination);
         source.connect(analyser);
         animationId = updateVisual(analyser);
@@ -44,6 +45,7 @@ window.onload = function () {
     const startAudio = (audioFile) => {
         audio.src = URL.createObjectURL(audioFile);
         audio.autoplay = true;
+        startContext();
         audio.play();
         startVisualiser();
     };
@@ -62,6 +64,7 @@ window.onload = function () {
         const level9 = Math.floor(fbcArray[8] * 0.5);
         const level10 = Math.floor(fbcArray[9] * 0.5);
         const level11 = fbcArray[10];
+      
 
         soundBar1.style.width = `${level1}%`;
         soundBar2.style.width = `${level2}%`;
@@ -75,6 +78,7 @@ window.onload = function () {
         soundBar10.style.width = `${level10}%`;
         soundBar11.style.width = `${level11}%`;
 
+        
         animationId = requestAnimationFrame(() => updateVisual(analyser));
     };
 
