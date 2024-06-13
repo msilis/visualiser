@@ -95,30 +95,30 @@ window.onload = function () {
         const level10 = Math.floor(fbcArray[9] * 0.5);
         const level11 = fbcArray[10];
 
+        const levelsArray = [
+            level1,
+            level2,
+            level3,
+            level4,
+            level5,
+            level6,
+            level7,
+            level8,
+            level9,
+            level10,
+            level11
+        ];
+
         if (soundBar1.classList.contains("circle")) {
-            soundBar1.style.transform = `translate(-50%, -50%) scale(${level1})`;
-            soundBar2.style.transform = `translate(-50%, -50%) scale(${level2})`;
-            soundBar3.style.transform = `translate(-50%, -50%) scale(${level3})`;
-            soundBar4.style.transform = `translate(-50%, -50%) scale(${level4})`;
-            soundBar5.style.transform = `translate(-50%, -50%) scale(${level5})`;
-            soundBar6.style.transform = `translate(-50%, -50%) scale(${level6})`;
-            soundBar7.style.transform = `translate(-50%, -50%) scale(${level7})`;
-            soundBar8.style.transform = `translate(-50%, -50%) scale(${level8})`;
-            soundBar9.style.transform = `translate(-50%, -50%) scale(${level9})`;
-            soundBar10.style.transform = `translate(-50%, -50%) scale(${level10})`;
-            soundBar11.style.transform = `translate(-50%, -50%) scale(${level11})`;
+            soundBarArray.forEach((soundBar, index) => {
+                const level = levelsArray[index];
+                soundBar.style.transform = `translate(-50%, -50%) scale(${level})`;
+            });
         } else {
-            soundBar1.style.width = `${level1}%`;
-            soundBar2.style.width = `${level2}%`;
-            soundBar3.style.width = `${level3}%`;
-            soundBar4.style.width = `${level4}%`;
-            soundBar5.style.width = `${level5}%`;
-            soundBar6.style.width = `${level6}%`;
-            soundBar7.style.width = `${level7}%`;
-            soundBar8.style.width = `${level8}%`;
-            soundBar9.style.width = `${level9}%`;
-            soundBar10.style.width = `${level10}%`;
-            soundBar11.style.width = `${level11}%`;
+            soundBarArray.forEach((soundBar, index) => {
+                const level = levelsArray[index];
+                soundBar.style.width = `${level}%`;
+            });
         }
 
         animationId = requestAnimationFrame(() => updateVisual(analyser));
