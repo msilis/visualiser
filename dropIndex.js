@@ -14,6 +14,7 @@ const soundBar10 = document.getElementById("soundbar10");
 const soundBar11 = document.getElementById("soundbar11");
 const choiceButtonCircle = document.getElementById("choiceButtonCircle");
 const choiceButtonRectangle = document.getElementById("choiceButtonRectangle");
+const soundBarWrapper = document.getElementsByClassName("soundbar-wrapper");
 
 const soundBarArray = [
     soundBar1,
@@ -31,15 +32,21 @@ const soundBarArray = [
 
 document.body.appendChild(audio);
 
+console.log(soundBarWrapper);
+
 const handleClassChangeToRect = () => {
+    audio.pause();
     soundBarArray.forEach((soundBar) => {
         soundBar.className = "rectangle";
     });
+    audio.play();
 };
 const handleClassChangeToCircle = () => {
+    audio.pause();
     soundBarArray.forEach((soundBar) => {
         soundBar.className = "circle";
     });
+    audio.play();
 };
 
 choiceButtonCircle.addEventListener("click", handleClassChangeToCircle);
@@ -83,17 +90,17 @@ window.onload = function () {
     const updateVisual = (analyser) => {
         const fbcArray = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(fbcArray);
-        const level1 = fbcArray[0];
-        const level2 = fbcArray[1];
-        const level3 = fbcArray[2];
-        const level4 = fbcArray[3];
-        const level5 = fbcArray[4];
-        const level6 = fbcArray[5];
-        const level7 = Math.floor(fbcArray[6] * 0.5);
-        const level8 = Math.floor(fbcArray[7] * 0.5);
-        const level9 = Math.floor(fbcArray[8] * 0.5);
-        const level10 = Math.floor(fbcArray[9] * 0.5);
-        const level11 = fbcArray[10];
+        const level1 = Math.floor(fbcArray[0] * 0.6);
+        const level2 = Math.floor(fbcArray[1] * 0.6);
+        const level3 = Math.floor(fbcArray[2] * 0.6);
+        const level4 = Math.floor(fbcArray[3] * 0.6);
+        const level5 = Math.floor(fbcArray[4] * 0.6);
+        const level6 = Math.floor(fbcArray[5] * 0.6);
+        const level7 = Math.floor(fbcArray[6] * 0.6);
+        const level8 = Math.floor(fbcArray[7] * 0.6);
+        const level9 = Math.floor(fbcArray[8] * 0.6);
+        const level10 = Math.floor(fbcArray[9] * 0.6);
+        const level11 = Math.floor(fbcArray[10] * 0.6);
 
         const levelsArray = [
             level1,
@@ -112,12 +119,26 @@ window.onload = function () {
         if (soundBar1.classList.contains("circle")) {
             soundBarArray.forEach((soundBar, index) => {
                 const level = levelsArray[index];
+                soundBar.style.width = "5px";
                 soundBar.style.transform = `translate(-50%, -50%) scale(${level})`;
+                soundBarWrapper[0].style.display = "flex";
+                soundBarWrapper[0].style.gap = "100px";
+                soundBarWrapper[0].style.marginLeft = "20vw";
+                soundBarWrapper[0].style.marginTop = "20%";
+                soundBarWrapper[0].style.marginRight = "auto";
+                soundBar.style.margin = `${level}`;
             });
         } else {
             soundBarArray.forEach((soundBar, index) => {
                 const level = levelsArray[index];
+                soundBar.style.transform = "none";
+                soundBar.style.margin = "10px";
                 soundBar.style.width = `${level}%`;
+                soundBarWrapper[0].style.display = "block";
+                soundBarWrapper[0].style.gap = "100px";
+                soundBarWrapper[0].style.marginLeft = "0";
+                soundBarWrapper[0].style.marginTop = "0";
+                soundBarWrapper[0].style.marginRight = "0";
             });
         }
 
